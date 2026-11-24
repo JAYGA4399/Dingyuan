@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js');</script>
+<title>大定远NB · 定远县介绍</title>
+<meta name="description" content="安徽省滁州市定远县介绍：历史沿革、人文名人、红色记忆、交通区位、特色产业、旅游景点与民俗美食。">
+<style>
+  :root{
+    --ink:#22313f;
+    --deep:#0f4c4a;
+    --teal:#156f6b;
+    --gold:#c8a24a;
+    --gold-soft:#e7d7ac;
+    --paper:#f7f2e7;
+    --paper-2:#efe8d8;
+    --white:#fffdf8;
+    --text:#3c3a34;
+    --muted:#6f6a5e;
+    --shadow:0 10px 30px rgba(34,49,63,.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+    background:var(--paper);
+    color:var(--text);
+    line-height:1.75;
+  }
+  .serif{font-family:"Noto Serif SC","Songti SC","SimSun",serif;}
+  a{color:inherit;text-decoration:none;}
+
+  /* ---------- 导航 ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(15,76,74,.92);
+    backdrop-filter:blur(8px);
+    color:#f4efe3;
+    transition:box-shadow .3s;
+  }
+  header.scrolled{box-shadow:0 4px 18px rgba(0,0,0,.25);}
+  .nav-inner{
+    max-width:1200px;margin:0 auto;padding:0 20px;
+    display:flex;align-items:center;justify-content:space-between;height:62px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:700;letter-spacing:2px;}
+  .brand .seal{
+    width:36px;height:36px;border:2px solid var(--gold);color:var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    font-family:"Noto Serif SC",serif;font-size:20px;transform:rotate(-6deg);
+  }
+  nav ul{display:flex;list-style:none;gap:4px;}
+  nav a{
+    display:block;padding:8px 13px;font-size:15px;border-radius:6px;
+    transition:background .25s,color .25s;
+  }
+  nav a:hover,nav a.active{background:rgba(255,255,255,.14);color:var(--gold-soft);}
+  .menu-btn{
+    display:none;background:none;border:1px solid rgba(255,255,255,.4);color:#fff;
+    padding:6px 12px;border-radius:6px;font-size:16px;cursor:pointer;user-select:none;
+  }
+  .nav-toggle{display:none;}
+  @media (max-width:900px){
+    .menu-btn{display:block;}
+    nav{display:none;position:absolute;top:62px;left:0;right:0;background:var(--deep);}
+    /* 纯 CSS 展开菜单：即使 JS 被禁用也能点击跳转 */
+    .nav-toggle:checked ~ nav{display:block;}
+    nav ul{flex-direction:column;padding:10px 16px 16px;}
+    nav a{padding:11px 8px;border-bottom:1px solid rgba(255,255,255,.08);}
+  }
+
+  /* ---------- 首屏 ---------- */
+  .hero{
+    min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+    text-align:center;color:#f7f2e7;position:relative;overflow:hidden;
+    background:
+      radial-gradient(ellipse at 20% 15%, rgba(200,162,74,.28), transparent 45%),
+      radial-gradient(ellipse at 85% 80%, rgba(23,111,107,.5), transparent 50%),
+      linear-gradient(160deg,#0a3331 0%,#0f4c4a 45%,#1b5f57 100%);
+    background-size:180% 180%,180% 180%,100% 100%;
+    animation:heroShift 16s ease-in-out infinite alternate;
+    padding:110px 20px 60px;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background-image:
+      radial-gradient(circle at 12% 28%, rgba(255,255,255,.05) 0 2px, transparent 2.5px),
+      radial-gradient(circle at 70% 62%, rgba(255,255,255,.05) 0 2px, transparent 2.5px),
+      radial-gradient(circle at 88% 20%, rgba(255,255,255,.05) 0 2px, transparent 2.5px);
+    background-size:420px 420px;pointer-events:none;
+  }
+  .hero .kicker{
+    letter-spacing:8px;font-size:15px;color:var(--gold-soft);
+    border:1px solid rgba(200,162,74,.55);padding:6px 22px;border-radius:30px;
+  }
+  .hero h1{
+    font-size:clamp(56px,10vw,110px);font-weight:900;letter-spacing:14px;
+    text-shadow:0 6px 30px rgba(0,0,0,.35);margin:26px 0 8px;
+  }
+  .hero .slogan{
+    font-size:clamp(18px,2.6vw,26px);letter-spacing:6px;color:#e9dfc4;
+  }
+  .hero .nb{
+    margin:16px 0 2px;font-size:clamp(34px,6vw,58px);font-weight:900;letter-spacing:5px;
+    color:#ffe9a8;
+    text-shadow:
+      0 0 12px rgba(255,217,122,.9),
+      0 0 32px rgba(200,162,74,.75),
+      0 0 60px rgba(200,162,74,.5),
+      0 4px 16px rgba(0,0,0,.45);
+    animation:heroIn .9s .65s cubic-bezier(.22,.9,.35,1) backwards, nbGlow 2.2s ease-in-out 1.7s infinite;
+  }
+  @keyframes nbGlow{
+    0%,100%{text-shadow:0 0 12px rgba(255,217,122,.9),0 0 32px rgba(200,162,74,.75),0 0 60px rgba(200,162,74,.5),0 4px 16px rgba(0,0,0,.45);}
+    50%{text-shadow:0 0 22px rgba(255,217,122,1),0 0 48px rgba(200,162,74,.95),0 0 84px rgba(200,162,74,.7),0 4px 16px rgba(0,0,0,.45);}
+  }
+  .hero .sub{max-width:720px;margin:26px auto 0;color:#cfe3df;font-size:16px;}
+
+  /* ---------- 首屏入场动画 ---------- */
+  .hero .kicker,.hero h1,.hero .slogan,.hero .sub{
+    animation:heroIn .9s cubic-bezier(.22,.9,.35,1) backwards;
+  }
+  .hero .kicker{animation-delay:.1s;}
+  .hero h1{animation-delay:.25s;}
+  .hero .slogan{animation-delay:.45s;}
+  .hero .sub{animation-delay:.75s;}
+  @keyframes heroIn{
+    from{opacity:0;transform:translateY(36px) scale(.95);}
+    to{opacity:1;transform:none;}
+  }
+  @keyframes heroShift{
+    from{background-position:0% 0%,0% 0%,0% 0%;}
+    to{background-position:30% 18%,65% 82%,100% 100%;}
+  }
+  .hero .scroll-tip{
+    position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+    color:#b8d0ca;font-size:13px;letter-spacing:3px;animation:bob 2s infinite;
+  }
+  @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+
+  /* ---------- 数据条 ---------- */
+  .stats{
+    max-width:1100px;margin:-70px auto 0;position:relative;z-index:5;
+    background:var(--white);border-radius:16px;box-shadow:var(--shadow);
+    display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden;
+    border:1px solid #e6ddc8;
+  }
+  .stat{padding:26px 10px;text-align:center;position:relative;}
+  .stat+.stat::before{content:"";position:absolute;left:0;top:22%;height:56%;width:1px;background:#e6ddc8;}
+  .stat .num{font-size:34px;font-weight:800;color:var(--deep);}
+  .stat .num small{font-size:15px;font-weight:600;color:var(--gold);margin-left:2px;}
+  .stat .label{font-size:14px;color:var(--muted);margin-top:4px;letter-spacing:2px;}
+  @media (max-width:760px){
+    .stats{grid-template-columns:1fr 1fr;margin-top:-54px;}
+    .stat:nth-child(3)::before{display:none;}
+  }
+
+  /* ---------- 通用区块 ---------- */
+  section{scroll-margin-top:66px;padding:88px 20px 20px;}
+  .wrap{max-width:1100px;margin:0 auto;}
+  .sec-head{text-align:center;margin-bottom:46px;}
+  .sec-head .tag{
+    display:inline-block;color:var(--gold);border:1px solid var(--gold);
+    padding:3px 18px;border-radius:20px;font-size:13px;letter-spacing:5px;
+  }
+  .sec-head h2{
+    font-size:clamp(28px,4vw,40px);color:var(--ink);margin:14px 0 10px;letter-spacing:4px;
+  }
+  .sec-head p{color:var(--muted);font-size:15px;max-width:640px;margin:0 auto;}
+
+  /* ---------- 概况卡片 ---------- */
+  .overview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .o-card{
+    background:var(--white);border-radius:14px;padding:30px 26px;
+    border:1px solid #e6ddc8;box-shadow:0 6px 20px rgba(34,49,63,.06);
+    transition:transform .3s,box-shadow .3s;
+  }
+  .o-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+  .o-card .icon{
+    width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--deep),var(--teal));
+    color:var(--gold-soft);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px;
+  }
+  .o-card h3{font-size:19px;color:var(--ink);margin-bottom:10px;}
+  .o-card p{font-size:14.5px;color:#5c574c;}
+  @media (max-width:900px){.overview-grid{grid-template-columns:1fr;}}
+
+  /* ---------- 时间线 ---------- */
+  .timeline{position:relative;max-width:820px;margin:0 auto;padding-left:34px;}
+  .timeline::before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--gold),var(--teal));}
+  .t-item{position:relative;padding:0 0 34px 22px;}
+  .t-item::before{
+    content:"";position:absolute;left:-29px;top:8px;width:14px;height:14px;border-radius:50%;
+    background:var(--white);border:3px solid var(--gold);
+  }
+  .t-item .year{font-weight:800;color:var(--deep);font-size:18px;letter-spacing:1px;}
+  .t-item .t-title{font-weight:700;color:var(--ink);margin:2px 0 4px;}
+  .t-item p{font-size:14.5px;color:var(--muted);}
+
+  /* ---------- 名人 ---------- */
+  .people-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .p-card{
+    background:var(--white);border-radius:14px;padding:26px 22px;text-align:center;
+    border:1px solid #e6ddc8;transition:transform .3s,box-shadow .3s;
+  }
+  .p-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+  .p-card .avatar{
+    width:74px;height:74px;margin:0 auto 14px;border-radius:50%;
+    background:linear-gradient(135deg,var(--deep),var(--teal));color:#f0e6c8;
+    display:flex;align-items:center;justify-content:center;
+    font-family:"Noto Serif SC",serif;font-size:30px;font-weight:700;
+  }
+  .p-card h3{font-size:18px;color:var(--ink);}
+  .p-card .era{font-size:12.5px;color:var(--gold);letter-spacing:2px;margin:4px 0 8px;}
+  .p-card p{font-size:13.5px;color:var(--muted);}
+  @media (max-width:900px){.people-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:600px){.people-grid{grid-template-columns:1fr;}}
+
+  /* ---------- 红色记忆 ---------- */
+  .red-band{
+    background:linear-gradient(140deg,#7a1f1f 0%,#9c2b2b 60%,#a83434 100%);
+    color:#f6e9dc;border-radius:18px;padding:46px 40px;box-shadow:var(--shadow);
+    display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:center;
+  }
+  .red-band h2{color:#fff;font-size:30px;letter-spacing:5px;margin-bottom:14px;}
+  .red-band p{font-size:15px;color:#f0dccb;margin-bottom:12px;}
+  .red-band .highlight{
+    border-left:3px solid var(--gold);background:rgba(0,0,0,.15);
+    padding:14px 18px;border-radius:0 10px 10px 0;font-size:14.5px;
+  }
+  .red-cards{display:grid;gap:14px;}
+  .red-card{
+    background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.22);
+    border-radius:12px;padding:16px 18px;
+  }
+  .red-card b{display:block;color:#ffe9b8;font-size:15.5px;margin-bottom:4px;}
+  .red-card span{font-size:13.5px;color:#f3ded0;}
+  @media (max-width:860px){.red-band{grid-template-columns:1fr;}}
+
+  /* ---------- 交通 ---------- */
+  .traffic-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .tf-card{
+    background:var(--white);border:1px solid #e6ddc8;border-radius:14px;
+    padding:24px 14px;text-align:center;transition:transform .3s;
+  }
+  .tf-card:hover{transform:translateY(-5px);}
+  .tf-card .dest{font-size:26px;font-weight:800;color:var(--deep);}
+  .tf-card .time{color:var(--gold);font-weight:700;font-size:16px;margin:6px 0 2px;}
+  .tf-card .via{font-size:13px;color:var(--muted);}
+  @media (max-width:800px){.traffic-grid{grid-template-columns:1fr 1fr;}}
+  .traffic-note{
+    margin-top:26px;text-align:center;color:var(--muted);font-size:14.5px;
+  }
+  .traffic-note b{color:var(--deep);}
+
+  /* ---------- 产业 ---------- */
+  .industry-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .i-card{
+    background:var(--white);border:1px solid #e6ddc8;border-radius:14px;padding:28px 26px;
+    box-shadow:0 6px 20px rgba(34,49,63,.06);
+  }
+  .i-card h3{color:var(--deep);font-size:19px;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+  .i-card h3 .dot{width:10px;height:10px;border-radius:50%;background:var(--gold);display:inline-block;}
+  .i-card p{font-size:14.5px;color:#5c574c;}
+  .i-card ul{margin:10px 0 0 20px;font-size:14px;color:#5c574c;}
+  .i-card ul li{margin-bottom:6px;}
+  @media (max-width:860px){.industry-grid{grid-template-columns:1fr;}}
+
+  /* ---------- 旅游 ---------- */
+  .scenic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .s-card{
+    position:relative;border-radius:16px;overflow:hidden;color:#f7f2e7;
+    min-height:300px;display:flex;align-items:flex-end;cursor:pointer;
+    box-shadow:var(--shadow);
+  }
+  .s-card .bg{
+    position:absolute;inset:0;transition:transform .6s;
+    background-size:cover;background-position:center;
+  }
+  .s-card:hover .bg{transform:scale(1.08);}
+  .s-card .shade{
+    position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(10,40,38,0) 30%,rgba(10,40,38,.88) 100%);
+  }
+  .s-card .info{position:relative;padding:22px;}
+  .s-card h3{font-size:20px;letter-spacing:3px;margin-bottom:6px;}
+  .s-card p{font-size:13.5px;color:#d9e6e2;}
+  .s-card .tag{
+    position:absolute;top:14px;left:14px;z-index:2;background:rgba(200,162,74,.92);color:#2c2413;
+    font-size:12px;padding:3px 12px;border-radius:14px;letter-spacing:2px;font-weight:700;
+  }
+  @media (max-width:900px){.scenic-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:620px){.scenic-grid{grid-template-columns:1fr;}}
+
+  /* ---------- 民俗与美食 ---------- */
+  .culture-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  .cu-card{
+    display:flex;gap:18px;background:var(--white);border:1px solid #e6ddc8;
+    border-radius:14px;padding:22px;align-items:flex-start;
+  }
+  .cu-card .num{
+    flex:none;width:46px;height:46px;border-radius:50%;
+    background:var(--paper-2);color:var(--deep);font-weight:800;font-size:18px;
+    display:flex;align-items:center;justify-content:center;border:1px solid #ddd2b6;
+  }
+  .cu-card h3{font-size:17px;color:var(--ink);margin-bottom:6px;}
+  .cu-card p{font-size:13.5px;color:var(--muted);}
+  @media (max-width:760px){.culture-grid{grid-template-columns:1fr;}}
+
+  .food-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:26px;}
+  .f-card{
+    background:var(--white);border-radius:14px;border:1px solid #e6ddc8;
+    padding:22px 14px;text-align:center;transition:transform .3s;
+  }
+  .f-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+  .f-card .emoji{font-size:34px;margin-bottom:8px;}
+  .f-card h4{font-size:15.5px;color:var(--ink);margin-bottom:4px;}
+  .f-card p{font-size:12.5px;color:var(--muted);}
+  @media (max-width:800px){.food-grid{grid-template-columns:1fr 1fr;}}
+
+  /* ---------- 教育 ---------- */
+  .edu-band{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    background:var(--deep);border-radius:18px;overflow:hidden;color:#eef5f2;
+    box-shadow:var(--shadow);
+  }
+  .edu-item{padding:34px 20px;text-align:center;}
+  .edu-item+.edu-item{border-left:1px solid rgba(255,255,255,.14);}
+  .edu-item .big{font-size:40px;font-weight:900;color:var(--gold-soft);}
+  .edu-item .big small{font-size:16px;font-weight:700;}
+  .edu-item .desc{font-size:14px;margin-top:6px;color:#cfe0da;}
+  @media (max-width:700px){.edu-band{grid-template-columns:1fr;}.edu-item+.edu-item{border-left:none;border-top:1px solid rgba(255,255,255,.14);}}
+
+  /* ---------- 页脚 ---------- */
+  footer{
+    margin-top:90px;background:#1d2a34;color:#b9c4cb;padding:44px 20px 30px;text-align:center;
+  }
+  footer .f-title{color:#eee5cd;font-size:20px;letter-spacing:6px;margin-bottom:10px;}
+  footer p{font-size:13.5px;max-width:760px;margin:0 auto 8px;}
+  footer a{color:#e8cf8f;border-bottom:1px dotted #8a7a52;}
+  footer .copy{margin-top:18px;font-size:12.5px;color:#7d8a92;}
+
+  /* ---------- 动效 ---------- */
+  /* 关键：无 JS 时内容默认全部可见；仅当 JS 可用时才启用“滚动显现”动画 */
+  html.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+  html.js .reveal.visible{opacity:1;transform:none;}
+
+  .to-top{
+    position:fixed;right:22px;bottom:26px;width:46px;height:46px;border-radius:50%;
+    background:var(--deep);color:#f0e6c8;border:none;font-size:20px;cursor:pointer;
+    box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .3s;z-index:90;
+  }
+  .to-top.show{opacity:1;pointer-events:auto;}
+
+  /* ---------- 打印/PDF 优化 ---------- */
+  @media print{
+    header,.to-top,.scroll-tip{display:none !important;}
+    html.js .reveal{opacity:1 !important;transform:none !important;}
+    .hero{min-height:auto !important;padding:70px 24px 50px !important;}
+    .stats{margin:0 auto !important;}
+    section{padding:44px 8px 8px !important;scroll-margin-top:0;}
+    .s-card{min-height:220px;}
+    .nb{animation:none !important;}
+    .p-card,.o-card,.i-card,.cu-card,.f-card,.tf-card,.s-card{break-inside:avoid;}
+    .red-band,.edu-band{break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <span class="seal">定</span>定远县
+    </a>
+    <input type="checkbox" id="navToggle" class="nav-toggle" aria-label="展开导航目录">
+    <label for="navToggle" class="menu-btn">☰ 目录</label>
+    <nav>
+      <ul>
+        <li><a href="#overview">概况</a></li>
+        <li><a href="#history">历史</a></li>
+        <li><a href="#people">名人</a></li>
+        <li><a href="#red">红色记忆</a></li>
+        <li><a href="#traffic">交通</a></li>
+        <li><a href="#industry">产业</a></li>
+        <li><a href="#travel">旅游</a></li>
+        <li><a href="#culture">民俗美食</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- 首屏 -->
+<section class="hero">
+  <div class="kicker">安徽省 · 滁州市 · 定远县</div>
+  <h1 class="serif">定远</h1>
+  <div class="slogan serif">安定远方 · 将相故里</div>
+  <div class="nb">大定远 · NB！</div>
+  <p class="sub">
+    位于江淮分水岭北侧的千年古县，古有“境连八邑，衢通九省”之誉。
+    这里走出了鲁肃、董槐、李善长、戚继光等一代将相，
+    也是全国重要的红色革命根据地与皖东粮仓。
+  </p>
+  <div class="scroll-tip">▼ 向下探索</div>
+</section>
+
+<!-- 数据条 -->
+<div class="stats reveal">
+  <div class="stat">
+    <div class="num"><span class="cnt" data-target="3002" data-dec="0">3002</span><small>km²</small></div>
+    <div class="label">县域面积 · 滁州最大</div>
+  </div>
+  <div class="stat">
+    <div class="num"><span class="cnt" data-target="1500" data-dec="0">1500</span><small>年</small></div>
+    <div class="label">置县历史 · 沿用至今</div>
+  </div>
+  <div class="stat">
+    <div class="num"><span class="cnt" data-target="66.1" data-dec="1">66.1</span><small>万</small></div>
+    <div class="label">常住人口</div>
+  </div>
+  <div class="stat">
+    <div class="num"><span class="cnt" data-target="440.9" data-dec="1">440.9</span><small>亿</small></div>
+    <div class="label">2025年地区生产总值</div>
+  </div>
+</div>
+
+<!-- 概况 -->
+<section id="overview">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">县情概况</span>
+      <h2 class="serif">认识定远</h2>
+      <p>定远县是滁州市国土面积最大、人口最多的县，正处在长三角一体化发展、合肥都市圈同城化、皖北全面振兴等重大战略叠加的机遇期。</p>
+    </div>
+    <div class="overview-grid">
+      <div class="o-card reveal">
+        <div class="icon">📍</div>
+        <h3>地理区位</h3>
+        <p>地处安徽省东部、滁州市西北部，北接凤阳县，西连长丰县与淮南市，东邻滁州市南谯区、明光市。地势北高南低，江淮两大水系于此分流，属北亚热带向暖温带过渡性气候，四季分明。</p>
+      </div>
+      <div class="o-card reveal">
+        <div class="icon">🏛️</div>
+        <h3>行政区划</h3>
+        <p>辖定城、炉桥、张桥、池河、藕塘、吴圩、永康等镇及二龙回族乡等乡，并设省级经济开发区（盐化工业园）和国家级农业示范园。县人民政府驻定城镇城东新区。</p>
+      </div>
+      <div class="o-card reveal">
+        <div class="icon">💎</div>
+        <h3>资源禀赋</h3>
+        <p>全国商品粮油大县、生猪生产大县、岩盐资源大县、石膏资源大县。已探明岩盐、石膏等矿种23个，其中岩盐储量20亿吨，为安徽独有，是全省唯一的盐化工基地。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 历史 -->
+<section id="history" style="background:var(--paper-2);padding-top:88px;">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">历史沿革</span>
+      <h2 class="serif">千年定远 · 文脉悠长</h2>
+      <p>“定远”之名，取“安定远方、收复失地”之意，自南朝梁沿用至今1500年。</p>
+    </div>
+    <div class="timeline">
+      <div class="t-item reveal">
+        <div class="year">约7300年前</div>
+        <div class="t-title">侯家寨遗址</div>
+        <p>江淮流域原始社会早期文化类型，见证定远悠久的人类活动史。境内周王遗址还是安徽迄今发现石制品最丰富的旧石器遗址，入选2024—2025年安徽十大考古新发现。</p>
+      </div>
+      <div class="t-item reveal">
+        <div class="year">秦朝</div>
+        <div class="t-title">置阴陵、东城二县</div>
+        <p>秦行郡县，定远境属九江郡，设阴陵（治今靠山古城村）、东城（治今大桥镇三官集）二县。西汉又增置曲阳侯国。</p>
+      </div>
+      <div class="t-item reveal">
+        <div class="year">南朝梁 · 524年</div>
+        <div class="t-title">“定远”得名</div>
+        <p>梁武帝普通五年（524年），定远将军曹世宗收复淮南失地，将西曲阳、阴陵、东城三县合并，置定远县，取“安定远方”之意，县名沿用至今。</p>
+      </div>
+      <div class="t-item reveal">
+        <div class="year">唐 · 745年</div>
+        <div class="t-title">县治迁定城</div>
+        <p>唐天宝四年（745年），定远县治迁至定城，此后历朝基本未再变动。</p>
+      </div>
+      <div class="t-item reveal">
+        <div class="year">1949年至今</div>
+        <div class="t-title">隶属滁州市</div>
+        <p>1949年成立定远县人民政府，1993年随滁县地区撤地设市，隶属滁州市，翻开发展新篇章。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 名人 -->
+<section id="people">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">人文荟萃</span>
+      <h2 class="serif">将相故里 · 群星璀璨</h2>
+      <p>定远自古享有“怀诗、寿字、定文章”之美誉，一代代将相名臣从这里走向历史舞台。</p>
+    </div>
+    <div class="people-grid">
+      <div class="p-card reveal">
+        <div class="avatar">肃</div>
+        <h3>鲁肃</h3>
+        <div class="era">172 — 214 · 东吴</div>
+        <p>字子敬，三国时期东吴著名军事家、战略家、外交家。赤壁之战前力主联刘抗曹，为三国鼎立格局的形成作出重要贡献。</p>
+      </div>
+      <div class="p-card reveal">
+        <div class="avatar">槐</div>
+        <h3>董槐</h3>
+        <div class="era">？ — 1262 · 南宋</div>
+        <p>字庭植，嘉定进士，官至右丞相兼枢密使，整肃军政、训练士卒，在抗蒙守蜀中多有建树，是南宋名相。</p>
+      </div>
+      <div class="p-card reveal">
+        <div class="avatar">善</div>
+        <h3>李善长</h3>
+        <div class="era">1314 — 1390 · 明朝</div>
+        <p>字百室，明朝开国元勋、开国丞相。辅佐朱元璋平定天下，朱元璋赞其“比之于萧何，未必过也”。</p>
+      </div>
+      <div class="p-card reveal">
+        <div class="avatar">戚</div>
+        <h3>戚继光</h3>
+        <div class="era">1528 — 1587 · 明朝</div>
+        <p>字元敬，号南塘，祖籍定远。明代抗倭名将、民族英雄，组建“戚家军”，南平倭寇、北御蒙古，功勋卓著。</p>
+      </div>
+      <div class="p-card reveal">
+        <div class="avatar">蓝</div>
+        <h3>蓝玉</h3>
+        <div class="era">？ — 1393 · 明朝</div>
+        <p>明朝开国元勋、开平王常遇春妻弟，骁勇善战，捕鱼儿海大捷威震北元，被封凉国公。</p>
+      </div>
+      <div class="p-card reveal">
+        <div class="avatar">凌</div>
+        <h3>凌永顺</h3>
+        <div class="era">1937 — 2023 · 当代</div>
+        <p>定远中学毕业，中国工程院院士、国防科技大学教授，全军英模代表，电子对抗领域专家。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 红色记忆 -->
+<section id="red">
+  <div class="wrap">
+    <div class="red-band reveal">
+      <div>
+        <h2 class="serif">红色定远</h2>
+        <p>
+          抗战时期，定远是全国重要的革命根据地。刘少奇、张云逸、徐海东等老一辈无产阶级革命家
+          都在这片土地上留下了光辉的战斗足迹。定远人民为新中国的建立付出了巨大牺牲，写下可歌可泣的红色篇章。
+        </p>
+        <div class="highlight">
+          <b style="color:#ffe9b8;">王小庙无名烈士陵园</b>
+          已安葬1200余名烈士忠骨，是迄今为止全国最大的新四军无名烈士墓群，无声诉说着革命先烈的英勇与奉献。
+        </div>
+      </div>
+      <div class="red-cards">
+        <div class="red-card">
+          <b>藕塘烈士陵园</b>
+          <span>入选全国红色旅游经典景区，是皖东重要的爱国主义教育基地。</span>
+        </div>
+        <div class="red-card">
+          <b>中原局第三次会议旧址</b>
+          <span>入选全国红色旅游经典景区，见证了新四军在皖东抗战的关键决策。</span>
+        </div>
+        <div class="red-card">
+          <b>藕塘抗日民主根据地</b>
+          <span>抗战时期定远人民与新四军并肩战斗，为民族解放事业作出巨大贡献。</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 交通 -->
+<section id="traffic">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">区位交通</span>
+      <h2 class="serif">定始远方 · 朝发午至</h2>
+      <p>京沪高铁、合新高铁在此设站，高速公路纵横交织，定远已成为皖东重要的交通枢纽。</p>
+    </div>
+    <div class="traffic-grid">
+      <div class="tf-card reveal">
+        <div class="dest">南京</div>
+        <div class="time">30 分钟</div>
+        <div class="via">高铁直达</div>
+      </div>
+      <div class="tf-card reveal">
+        <div class="dest">合肥</div>
+        <div class="time">30 分钟</div>
+        <div class="via">高铁直达</div>
+      </div>
+      <div class="tf-card reveal">
+        <div class="dest">上海</div>
+        <div class="time">2 小时</div>
+        <div class="via">京沪高铁</div>
+      </div>
+      <div class="tf-card reveal">
+        <div class="dest">北京</div>
+        <div class="time">4 小时</div>
+        <div class="via">京沪高铁</div>
+      </div>
+    </div>
+    <p class="traffic-note reveal">
+      京沪高铁、合新高铁及京台、滁淮、明巢等高速穿境而过，构成<b>“七横六纵”</b>综合交通网络，
+      与合肥、滁州、淮南、蚌埠四城互联互通。
+    </p>
+  </div>
+</section>
+
+<!-- 产业 -->
+<section id="industry" style="background:var(--paper-2);padding-top:88px;">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">特色产业</span>
+      <h2 class="serif">产业兴县 · 行稳致远</h2>
+      <p>依托丰富的岩盐资源与农业禀赋，定远加快建设现代化产业体系，打造合滁合作新增长极。</p>
+    </div>
+    <div class="industry-grid">
+      <div class="i-card reveal">
+        <h3><span class="dot"></span>盐化工业园 —— 安徽唯一盐化工基地</h3>
+        <p>依托20亿吨岩盐储量，建设全省四大新型化工基地之一、省内唯一的盐化工基地，入选全国“十四五”智慧化工园区典型案例。</p>
+      </div>
+      <div class="i-card reveal">
+        <h3><span class="dot"></span>汽车及高端装备制造产业园</h3>
+        <p>位于吴圩镇，已签约入驻项目16家，均为比亚迪、大众等整车企业的一级供应商，成为合滁产业合作的新增长极。</p>
+      </div>
+      <div class="i-card reveal">
+        <h3><span class="dot"></span>农业全产业链</h3>
+        <p>围绕“猪、鹅、虾、菌、草”等特色产业，引进头部企业，建设张桥轻纺、藕塘花生等乡村振兴产业园，打造全国商品粮油大县新样板。</p>
+      </div>
+      <div class="i-card reveal">
+        <h3><span class="dot"></span>“定有良材”区域品牌</h3>
+        <ul>
+          <li><b>袁定大米</b> —— 江淮粮仓的优质稻米</li>
+          <li><b>定远黑猪</b> —— 国家级地方猪种资源</li>
+          <li><b>池河梅白鱼</b> —— 池河流域独有珍馐</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 旅游 -->
+<section id="travel">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">定远旅游</span>
+      <h2 class="serif">山水胜境 · 古韵新风</h2>
+      <p>2025年定远接待游客460万人次，实现旅游综合收入34.5亿元。</p>
+    </div>
+    <div class="scenic-grid">
+      <div class="s-card reveal">
+        <div class="bg" style="background-image:linear-gradient(135deg,#176a63,#0f4c4a);"></div>
+        <span class="tag">古城风韵</span>
+        <div class="shade"></div>
+        <div class="info">
+          <h3>定远古城</h3>
+          <p>位于县城东滨水休闲带，日月塔、古戏台、锦鲤池、戚继光将军像、状元桥等景点串联成带，尽显古城新韵。</p>
+        </div>
+      </div>
+      <div class="s-card reveal">
+        <div class="bg" style="background-image:linear-gradient(135deg,#a83434,#7a1f1f);"></div>
+        <span class="tag">红色经典</span>
+        <div class="shade"></div>
+        <div class="info">
+          <h3>令狐山景区 · 藕塘镇</h3>
+          <p>紧邻皇甫山国家森林公园，令狐塔、圣母庙香火绵延千载，每年农历三月十五庙会传承至今，已升格为藕塘民俗文化节。</p>
+        </div>
+      </div>
+      <div class="s-card reveal">
+        <div class="bg" style="background-image:linear-gradient(135deg,#b5651d,#8a4a12);"></div>
+        <span class="tag">丹霞地貌</span>
+        <div class="shade"></div>
+        <div class="info">
+          <h3>红石峡 · 拂晓镇</h3>
+          <p>大横山东南的丹霞地貌，赭红山体沟壑纵横、形态各异，被誉为皖东“赤壁”，充满野性粗犷之美。</p>
+        </div>
+      </div>
+      <div class="s-card reveal">
+        <div class="bg" style="background-image:linear-gradient(135deg,#2b6cb0,#1a365d);"></div>
+        <span class="tag">湖光山色</span>
+        <div class="shade"></div>
+        <div class="info">
+          <h3>朗峰湖</h3>
+          <p>位于藕塘镇南，群山环抱、碧波荡漾，四周松林四季常青，是休闲度假的山水佳境。</p>
+        </div>
+      </div>
+      <div class="s-card reveal">
+        <div class="bg" style="background-image:linear-gradient(135deg,#4a5568,#2d3748);"></div>
+        <span class="tag">千年古刹</span>
+        <div class="shade"></div>
+        <div class="info">
+          <h3>中九华寺</h3>
+          <p>位于五峰山麓，南北朝始建，史载为“霸王别姬处”，灵润殿、霸王寨、虞姬祠古迹众多。</p>
+        </div>
+      </div>
+      <div class="s-card reveal">
+        <div class="bg" style="background-image:linear-gradient(135deg,#2f855a,#1c4d3a);"></div>
+        <span class="tag">古寺名刹</span>
+        <div class="shade"></div>
+        <div class="info">
+          <h3>金山滴水寺</h3>
+          <p>藏于西卅店镇大金山深处，始建于南北朝，与凤阳禅窟寺齐名，山泉清冽、古木参天，香火千年不衰。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 民俗美食 -->
+<section id="culture" style="background:var(--paper-2);padding-top:88px;">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">风土人情</span>
+      <h2 class="serif">民俗节庆与地道风味</h2>
+      <p>千年古邑沉淀下浓郁的民俗风情与令人回味的美食记忆。</p>
+    </div>
+    <div class="culture-grid">
+      <div class="cu-card reveal">
+        <div class="num">一</div>
+        <div>
+          <h3>藕塘民俗文化节（农历三月十五）</h3>
+          <p>源于东汉令狐子伯感恩乡里的传说，古称令狐山庙会，千年传承至今，集祈福、商贸、文艺展演于一体，是皖东影响最大的民俗盛会之一。</p>
+        </div>
+      </div>
+      <div class="cu-card reveal">
+        <div class="num">二</div>
+        <div>
+          <h3>池河梅白鱼美食文化节</h3>
+          <p>梅白鱼为池河流域特有鱼种，鱼色如银、浆汁似奶、肉嫩味鲜。每年梅雨时节举办美食文化节，吸引八方食客。</p>
+        </div>
+      </div>
+      <div class="cu-card reveal">
+        <div class="num">三</div>
+        <div>
+          <h3>能仁庙会（农历二月初八）</h3>
+          <p>源于元代十三妹与义侠邓九公的传说，明清以来香客云集，锣鼓玩灯、商品交易，热闹非凡。</p>
+        </div>
+      </div>
+      <div class="cu-card reveal">
+        <div class="num">四</div>
+        <div>
+          <h3>民间艺术：兰花灯与皖东大鼓</h3>
+          <p>兰花灯（花鼓灯）已有700多年历史，抗战时期在藕塘根据地被赋予新唱词；大鼓、琴书等曲艺南北两派，韵味十足。</p>
+        </div>
+      </div>
+    </div>
+    <div class="food-grid">
+      <div class="f-card reveal">
+        <div class="emoji">🐟</div>
+        <h4>池河梅白鱼</h4>
+        <p>池河独有珍馐，鲜美绝伦</p>
+      </div>
+      <div class="f-card reveal">
+        <div class="emoji">🥩</div>
+        <h4>定远黑猪</h4>
+        <p>国家级地方良种，肉质香醇</p>
+      </div>
+      <div class="f-card reveal">
+        <div class="emoji">🍖</div>
+        <h4>定远桥尾腊肉</h4>
+        <p>传统腌制工艺，咸香浓郁</p>
+      </div>
+      <div class="f-card reveal">
+        <div class="emoji">🥜</div>
+        <h4>藕塘花生</h4>
+        <p>乡村振兴特色产业，香脆可口</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 教育 -->
+<section id="edu">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">教育名片</span>
+      <h2 class="serif">崇文重教 · 人才辈出</h2>
+      <p>定远教育是蜚声在外的烫金名片，尊师重教的传统在这片土地上生生不息。</p>
+    </div>
+    <div class="edu-band reveal">
+      <div class="edu-item">
+        <div class="big">21<small> 名</small></div>
+        <div class="desc">近五年考入清华、北大学子</div>
+      </div>
+      <div class="edu-item">
+        <div class="big">全市第一</div>
+        <div class="desc">“双一流”院校录取人数</div>
+      </div>
+      <div class="edu-item">
+        <div class="big">85%+</div>
+        <div class="desc">民生投入占一般公共预算支出比重</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-title serif">安定远方 · 魅力定远</div>
+  <p>
+    定远县隶属安徽省滁州市，地处江淮分水岭北侧，国土面积3002平方公里，辖19镇1乡。
+    本页面资料整理自公开权威信息，数据截至2025—2026年。
+  </p>
+  <p>
+    参考来源：<a href="https://www.dingyuan.gov.cn/gkxx/mggk/" target="_blank" rel="noopener">定远县人民政府 · 定远概况</a> ·
+    <a href="https://wapbaike.baidu.com/item/%E5%AE%9A%E8%BF%9C%E5%8E%BF/84555" target="_blank" rel="noopener">百度百科 · 定远县</a>
+  </p>
+  <div class="copy">© 2025 定远县介绍网页 · 仅供学习交流使用</div>
+</footer>
+
+<button class="to-top" id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  // 滚动显现动画（兼容降级：不支持 IntersectionObserver 时全部直接显示；
+  // 无 JS 时内容默认可见，动画只在 JS 可用时作为增强效果）
+  const revealEls = document.querySelectorAll('.reveal');
+  const showAll = () => revealEls.forEach(el => el.classList.add('visible'));
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    },{threshold:.12});
+    revealEls.forEach(el=>io.observe(el));
+  } else {
+    showAll();
+  }
+
+  // 数据条数字滚动动画
+  const countEls = document.querySelectorAll('.stat .num .cnt');
+  function runCounters(){
+    countEls.forEach(el=>{
+      const target = parseFloat(el.getAttribute('data-target'));
+      const dec = parseInt(el.getAttribute('data-dec')||'0',10);
+      const dur = 1600, t0 = performance.now();
+      const step = t=>{
+        const p = Math.min((t-t0)/dur, 1);
+        const eased = 1 - Math.pow(1-p, 3);
+        el.textContent = (target*eased).toFixed(dec);
+        if(p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    });
+  }
+  if (countEls.length) {
+    const statsBox = document.querySelector('.stats');
+    if (statsBox && 'IntersectionObserver' in window) {
+      const sio = new IntersectionObserver(es=>{
+        es.forEach(en=>{ if(en.isIntersecting){ runCounters(); sio.disconnect(); } });
+      },{threshold:.3});
+      sio.observe(statsBox);
+    } else {
+      runCounters();
+    }
+  }
+
+  // 导航高亮 + 返回顶部按钮
+  const sections=[...document.querySelectorAll('section[id],div.stats')];
+  const navLinks=[...document.querySelectorAll('nav a')];
+  const toTop=document.getElementById('toTop');
+  const header=document.querySelector('header');
+
+  window.addEventListener('scroll',()=>{
+    const y=window.scrollY;
+    header.classList.toggle('scrolled',y>10);
+    toTop.classList.toggle('show',y>600);
+
+    let current='';
+    sections.forEach(s=>{ if(y>=s.offsetTop-140) current=s.id; });
+    navLinks.forEach(a=>{
+      a.classList.toggle('active', a.getAttribute('href')==='#'+current);
+    });
+  });
+
+  // 点击右上角导航：平滑滚动跳转到对应区块
+  // （JS 被禁用时浏览器原生锚点跳转依然可用；纯 CSS 展开移动端菜单）
+  const navToggle = document.getElementById('navToggle');
+  navLinks.forEach(a=>{
+    a.addEventListener('click',e=>{
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if(target){
+        target.scrollIntoView({behavior:'smooth',block:'start'});
+        history.replaceState(null,'',a.getAttribute('href'));
+      }
+      if(navToggle) navToggle.checked = false; // 跳转后收起移动端菜单
+    });
+  });
+  const brand = document.querySelector('.brand');
+  if(brand){
+    brand.addEventListener('click',e=>{
+      e.preventDefault();
+      window.scrollTo({top:0,behavior:'smooth'});
+      history.replaceState(null,'','#top');
+    });
+  }
+</script>
+</body>
+</html>
